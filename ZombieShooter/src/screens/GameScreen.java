@@ -1,8 +1,15 @@
 package screens;
 
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.dysoco.zombieshooter.ZombieShooter;
 
 public class GameScreen implements Screen {
+	private OrthographicCamera camera;
+	
+	public GameScreen() {
+		camera = new OrthographicCamera(32, 32*ZombieShooter.ASPECT);
+	}
 
 	@Override
 	public void render(float delta) {
