@@ -1,25 +1,42 @@
 package screens;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.dysoco.zombieshooter.ZombieShooter;
 
 import entities.Player;
 
 public class GameScreen implements Screen, InputProcessor {
 	private OrthographicCamera camera;
+	private Stage stage;
 	public Player player;
 	
 	public GameScreen() {
 		camera = new OrthographicCamera(32, 32*ZombieShooter.ASPECT);
+		stage  = new Stage();
 		player = new Player(50, 50, 32, 32);
+		
+		stage.addActor(player);
+		
+		Gdx.input.setInputProcessor(this);
 	}
 
 	@Override
 	public void render(float delta) {
+		// Clear screen to black
+		Gdx.gl.glClearColor(0, 0, 0, 1);
+		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		
+		camera.update();
+        ZombieShooter.batch.setProjectionMatrix(camera.combined);
+        
+        stage.act(delta);
+		stage.draw();
 	}
 
 	@Override
@@ -69,6 +86,8 @@ public class GameScreen implements Screen, InputProcessor {
 
 	@Override
 	public boolean keyUp(int keycode) {
+		player.direction.set(0, 0);
+		
 		return false;
 	}
 
