@@ -5,8 +5,8 @@ import com.dysoco.zombieshooter.ZombieShooter;
 
 public class Player extends Entity {
 
-	public Player(float x, float y, float wd, float ht) {
-		super(x, y, wd, ht);
+	public Player(float x, float y) {
+		super(x, y, 48, 48);
 		
 		speed = 7;
 	}

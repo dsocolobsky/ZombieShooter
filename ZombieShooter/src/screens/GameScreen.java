@@ -19,7 +19,7 @@ public class GameScreen implements Screen, InputProcessor {
 	public GameScreen() {
 		camera = new OrthographicCamera(32, 32*ZombieShooter.ASPECT);
 		stage  = new Stage();
-		player = new Player(50, 50, 32, 32);
+		player = new Player(50, 50);
 		
 		stage.addActor(player);
 		
