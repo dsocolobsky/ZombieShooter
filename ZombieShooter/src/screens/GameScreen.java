@@ -2,14 +2,19 @@ package screens;
 
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.dysoco.zombieshooter.ZombieShooter;
 
+import entities.Player;
+
 public class GameScreen implements Screen, InputProcessor {
 	private OrthographicCamera camera;
+	public Player player;
 	
 	public GameScreen() {
 		camera = new OrthographicCamera(32, 32*ZombieShooter.ASPECT);
+		player = new Player(50, 50, 32, 32);
 	}
 
 	@Override
@@ -49,6 +54,16 @@ public class GameScreen implements Screen, InputProcessor {
 
 	@Override
 	public boolean keyDown(int keycode) {
+		if(keycode == Keys.A) {
+			player.direction.x = -1;
+		} else if(keycode == Keys.D) {
+			player.direction.x = 1;
+		} else if(keycode == Keys.W) {
+			player.direction.y = -1;
+		} else if(keycode == Keys.S) {
+			player.direction.y = 1;
+		}
+		
 		return false;
 	}
 
