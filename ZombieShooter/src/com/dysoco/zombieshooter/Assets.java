@@ -8,7 +8,7 @@ public class Assets {
 	public static Texture playertxt;
 	
 	public static void load() {
-		playertxt = new Texture(Gdx.files.internal("data/player.png"));
+		playertxt = new Texture(Gdx.files.internal("player.png"));
 	}
 	
 	public static void dispose() {
