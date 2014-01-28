@@ -1,4 +1,4 @@
-package com.dysoco.zombieshooter.screens;
+package screens;
 
 import com.badlogic.gdx.Screen;
 
