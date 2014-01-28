@@ -2,8 +2,9 @@ package entities;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 
-public class Entity {
+public class Entity extends Actor {
 	public Vector2 position;
 	public Vector2 size;
 	public Vector2 direction;
@@ -23,7 +24,7 @@ public class Entity {
 	public void update(float dt) {
 		updateBounds();
 	}
-	
+		
 	public void updateBounds() {
 		bounds.set(position.x, position.y, size.x, size.y);
 	}
