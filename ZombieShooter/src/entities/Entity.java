@@ -20,7 +20,7 @@ public class Entity {
 		bounds = new Rectangle(x, y, wd, ht);
 	}
 	
-	public void update() {
+	public void update(float dt) {
 		updateBounds();
 	}
 	
