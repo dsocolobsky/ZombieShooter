@@ -1,40 +1,26 @@
 package com.dysoco.zombieshooter;
 
-import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL10;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.Texture.TextureFilter;
-import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-public class ZombieShooter implements ApplicationListener {
+import screens.GameScreen;
+
+public class ZombieShooter extends Game {
+	public final static int WIDTH  = 800;
+	public final static int HEIGHT = 600;
+	public final static int ASPECT = WIDTH/HEIGHT;
 	
-	@Override
-	public void create() {		
-	}
+	private GameScreen gameScreen;
+	
+	public static SpriteBatch batch;
 
 	@Override
-	public void dispose() {
+	public void create() {
+		Assets.load();
 		
-	}
-
-	@Override
-	public void render() {		
-
-	}
-
-	@Override
-	public void resize(int width, int height) {
-	}
-
-	@Override
-	public void pause() {
-	}
-
-	@Override
-	public void resume() {
+		batch = new SpriteBatch();
+		
+		gameScreen = new GameScreen();
+		setScreen(gameScreen);
 	}
 }
